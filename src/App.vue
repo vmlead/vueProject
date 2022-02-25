@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <div>
         <app-navbar></app-navbar>
         <div class="row">
@@ -6,6 +7,10 @@
                 <router-view></router-view>
             </div>
         </div>
+=======
+    <div class="container">
+        <router-view></router-view>
+>>>>>>> 6903d67e26cc4186ec540ebf62642e7bb68e45b7
     </div>
 </template>
 
