@@ -25,24 +25,28 @@ const mutations = {
             state.stocks.splice(state.stocks.indexOf(record), 1);
         }
         state.funds += stockPrice * quantity;
+    },
+    'SET_PORTFOLIO' (state, portfolio) {
+        state.funds = portfolio.funds;
+        state.stocks = portfolio.stockPortfolio ? portfolio.stockPortfolio : [];
     }
 };
 
 const actions = {
-    sellsStocks({commit}, order) {
+    sellStocks({commit}, order) {
         commit('SELL_STOCKS', order);
     }
 };
 
 const getters = {
-    stocksPortfolio(state, getters) {
+    stockPortfolio(state, getters) {
         return state.stocks.map(stock => {
             const record = getters.stocks.find( element => element.id ===  stock.id);
             return {
                 id: stock.id,
                 quantity: stock.quantity,
-                name: stock.name,
-                price: stock.price
+                name: record.name,
+                price: record.price
             }
         });
     },
